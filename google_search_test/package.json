@@ -1,0 +1,9 @@
+{
+  "name": "google_search_test",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "mocha": "6.1.4",
+    "selenium-webdriver": "^4.0.0-alpha.4"
+  }
+}

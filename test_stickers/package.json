@@ -1,0 +1,14 @@
+{
+  "name": "test_login",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "selenium-webdriver": "^4.0.0-alpha.4"
+  },
+  "devDependencies": {
+    "mocha": "^6.1.4"
+  },
+  "scripts":{
+	"test": "mocha *.js"
+  }
+}

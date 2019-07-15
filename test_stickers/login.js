@@ -21,7 +21,7 @@ describe('chrome Search', function() {
   
   it('test', async function() {
     timeout = 10000;
-    locator = By.css('.image-wrapper');
+    locator = By.css('li.product');
     await driver.wait(until.elementLocated(locator), timeout).then(function() {
         driver.findElements(locator).then(function(elements) {
           elements.forEach(function(item, i, elements) {
@@ -35,7 +35,6 @@ describe('chrome Search', function() {
               }
             });
 
-            
             
           });
         });

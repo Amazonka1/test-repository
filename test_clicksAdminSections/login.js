@@ -26,8 +26,7 @@ describe('chrome Search', function() {
   it('test', async function() {    
     var locator = By.css('ul#box-apps-menu li#app-'),
     underItems,
-    link,
-    head;
+    link;
 
     await driver.wait(until.elementLocated(locator), timeout).then(async function() {
       await driver.findElements(locator).then(async function(elements) {
@@ -43,14 +42,14 @@ describe('chrome Search', function() {
                   link = refreshPage(driver, i);
                   underItems = link.findElement(By.css("ul.docs li:nth-child(" + y + ")"));
                   await underItems.click();
-                  await driver.findElement(By.id("content")).findElement(By.tagName("h1")).then(async function(){
-                    head = await driver.findElement(By.id("content")).findElement(By.tagName("h1")).getText();
+                  await driver.findElement(By.id("content")).findElement(By.tagName("h1")).then(async function(head){
+                    head = await head.getText();
                     console.log("Тег H1 найден " + head);
                   });
                 }
               }else{
-                await driver.findElement(By.id("content")).findElement(By.tagName("h1")).then(async function(){
-                  head = await driver.findElement(By.id("content")).findElement(By.tagName("h1")).getText();
+                await driver.findElement(By.id("content")).findElement(By.tagName("h1")).then(async function(head){
+                  head = await head.getText();
                   console.log("Тег H1 найден " + head);
                 });
               }

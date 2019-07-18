@@ -55,8 +55,8 @@ describe('chrome Search', function() {
             numbersComparison(mainProductOldPrice, productOldPrice, "Цены товаров совпадают ", "Цены товаров не совпадают ");
             numbersComparison(mainProductNewPrice, productNewPrice, "Цены товаров совпадают ", "Цены товаров не совпадают ");
 
-            stringsComparison(mainProductOldPriceColor, productOldPriceColor, "Цвета старых цен совпадают ", "Цвета старых цен не совпадают ");
-            stringsComparison(mainProductNewPriceColor, productNewPriceColor, "Цвета новых цен совпадают ", "Цвета новых цен не совпадают ");
+            colorsComparison(mainProductOldPriceColor, productOldPriceColor);//Цвета старых цен совпадают или не совпадают
+            colorsComparison(mainProductNewPriceColor, productNewPriceColor);//Цвета новых цен совпадают или не совпадают
 
             numbersComparison(productOldPriceFontSize, productNewPriceFontSize, "Размеры шрифтов совпадают в карточке товара ", "Размеры шрифтов не совпадают в карточке товара ");
             
@@ -84,6 +84,26 @@ describe('chrome Search', function() {
         console.log(text2 + number1 + " " + number2);
       }
   }
+
+  function colorsComparison(rgba1, rgba2){
+    var rgba1 = rgba1.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?\)$/);
+    var rgba2 = rgba2.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?\)$/);
+    if(rgba1[1] == rgba2[1]){
+        console.log("Значения по каналу R совпадают " + rgba1[1] + " " + rgba2[1]);
+    }else{
+      console.log("Значения по каналу R не совпадают " + rgba1[1] + " " + rgba2[1]);
+    }
+    if(rgba1[2] == rgba2[2]){
+      console.log("Значения по каналу G совпадают " + rgba1[2] + " " + rgba2[2]);
+    }else{
+      console.log("Значения по каналу G не совпадают " + rgba1[2] + " " + rgba2[2]);
+    }
+    if(rgba1[3] == rgba2[3]){
+      console.log("Значения по каналу B совпадают " + rgba1[3] + " " + rgba2[3]);
+    }else{
+      console.log("Значения по каналу B не совпадают " + rgba1[3] + " " + rgba2[3]);
+    }
+  } 
 
   after(async function() {
     await driver.quit();

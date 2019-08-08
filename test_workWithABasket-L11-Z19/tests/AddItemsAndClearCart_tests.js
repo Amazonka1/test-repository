@@ -13,8 +13,9 @@ test.describe('Litecart', function() {
         for(var i=0; i<3; i++){
             app.mainPage.chooseFirstItem();
             app.itemPage.addItemToCart();
-            app.itemPage.open();
+            app.mainPage.open();
         }
+        app.cartPage.clearCart();
     });
 
     test.after(function() {
